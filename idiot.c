@@ -98,8 +98,7 @@ void dongidea()
             }
             else
             {
-                if (ir4 > Max) Steering(2);
-                else if (ir4 > Min) Steering(2);
+                if (ir4 > Min) Steering(2);
                 else Steering(1);
             }
         }
