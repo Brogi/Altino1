@@ -1,5 +1,10 @@
 #include "Altino.h"
 
+void print_IR_value(int ir)
+{
+    printf("%d\n", ir);
+}
+
 void dongidea()
 {
     SensorData sens;
@@ -15,7 +20,18 @@ void dongidea()
         ir4 = sens.IRSensor[4];
         ir5 = sens.IRSensor[5];
 
-       printf("%d\n", ir4);
+        if (ir4 > 100)
+        {
+            Steering(2);
+        }
+        else if (ir4 <= 100 && ir4 > 20)
+        {
+            Steering(1);
+        }
+        else
+        {
+            Steering(0);
+        }
     }
 }
 
@@ -23,6 +39,7 @@ int main()
 {
     Open(szPort);
 
+    Go(400, 400);
     dongidea();
 
     return 0;
