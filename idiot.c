@@ -1,5 +1,9 @@
 #include "Altino.h"
 
+#define Max 80
+#define Min 20
+#define Crush 150
+
 int bpm = 115; int oct;
 void s(char sy[3],int len);
 
@@ -48,10 +52,10 @@ void print_IR_value(int ir)
 }
 
 void retreat() {
-	Steering(1);
+    Steering(2);
 	Go(-400, -400);
-	backsound();
-	Steering(2);
+	delay(500);
+	//backsound();
 	Go(400, 400);
 }
 
@@ -71,33 +75,33 @@ void dongidea()
         ir5 = sens.IRSensor[5];
         print_IR_value(ir1);
 
-        if (ir1 >= 500)
+        if (ir1 >= Crush || ir0 >= Crush || ir2 >= Crush)
         {
             retreat();
         }
         else
         {
-            if (ir4 > 80)
-        {
-            Steering(3);
-        }
-        else if (ir4 <= 80 && ir4 > 10)
-        {
-            if (ir0 > 100)
+            if (ir4 > Max)
             {
                 Steering(3);
             }
-            else if (ir2 > 100);
+            else if (ir4 <= Max && ir4 > Min)
+            {
+                if (ir0 > Max)
+                {
+                    Steering(3);
+                }
+                else if (ir2 > Max);
+                {
+                    Steering(1);
+                }
+                Steering(2);
+            }
+
+            else
             {
                 Steering(1);
             }
-            Steering(2);
-        }
-
-        else
-        {
-            Steering(1);
-        }
         }
 
     }
