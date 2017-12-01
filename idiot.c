@@ -19,18 +19,19 @@ void dongidea()
         ir3 = sens.IRSensor[3];
         ir4 = sens.IRSensor[4];
         ir5 = sens.IRSensor[5];
+        print_IR_value(ir4);
 
         if (ir4 > 100)
         {
-            Steering(2);
+            Steering(3);
         }
         else if (ir4 <= 100 && ir4 > 20)
         {
-            Steering(1);
+            Steering(2);
         }
         else
         {
-            Steering(0);
+            Steering(1);
         }
     }
 }
@@ -39,7 +40,7 @@ int main()
 {
     Open(szPort);
 
-    Go(400, 400);
+    Go(400,400);
     dongidea();
 
     return 0;
