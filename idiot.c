@@ -3,6 +3,7 @@
 #define Max 80
 #define Min 20
 #define Crush 150
+#define Speed 600
 
 int bpm = 115; int oct;
 void s(char sy[3],int len);
@@ -48,15 +49,17 @@ void s(char sy[3], int len)
 
 void print_IR_value(int ir)
 {
-    printf("%d\n", ir);
+    printf("%d ", ir);
 }
 
 void retreat() {
     Steering(2);
-	Go(-400, -400);
+	Go(-Speed, -Speed);
 	delay(500);
+	Steering(3);
 	//backsound();
-	Go(400, 400);
+	Go(Speed, Speed);
+	delay(500);
 }
 
 void dongidea()
@@ -73,34 +76,31 @@ void dongidea()
         ir3 = sens.IRSensor[3];
         ir4 = sens.IRSensor[4];
         ir5 = sens.IRSensor[5];
-        print_IR_value(ir1);
+        print_IR_value(ir0);
+        print_IR_value(ir4);
+        printf("\n");
 
-        if (ir1 >= Crush || ir0 >= Crush || ir2 >= Crush)
+        if (ir1 >= Crush)
         {
             retreat();
         }
         else
         {
-            if (ir4 > Max)
+            if(ir0 >= Crush)
             {
-                Steering(3);
+                retreat();
             }
-            else if (ir4 <= Max && ir4 > Min)
+            else if(ir0 > Min)
             {
-                if (ir0 > Max)
-                {
-                    Steering(3);
-                }
-                else if (ir2 > Max);
-                {
-                    Steering(1);
-                }
-                Steering(2);
+                if (ir4 > Max) Steering(3);
+                else if (ir4 > Min) Steering(2);
+                else Steering(1);
             }
-
             else
             {
-                Steering(1);
+                if (ir4 > Max) Steering(2);
+                else if (ir4 > Min) Steering(2);
+                else Steering(1);
             }
         }
 
@@ -111,7 +111,7 @@ int main()
 {
     Open(szPort);
 
-    Go(400,400);
+    Go(Speed,Speed);
     dongidea();
 
     return 0;
