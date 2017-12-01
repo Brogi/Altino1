@@ -1,43 +1,70 @@
+<<<<<<< HEAD
 #include <stdio.h>
 #include "Altino.h"
 
-int bpm = 115; int oct;
-void s(char sy[3],int len);
-
-void backsound()
+main()
 {
-	s("E .", 8); s("D#.", 8); s("E .", 8); s("D#.", 8); s("E .", 8); s("B", 8); s("D .", 8); s("C .", 8); s("A", 4); s("", 8);
-	s("C", 8); s("E", 8); s("A", 8); s("B", 4); s("", 8); s("E", 8); s("G#", 8); s("B", 8); s("C .", 4); s("", 8); s("E", 8);
-	s("E .", 8); s("D#.", 8); s("E .", 8); s("D#.", 8); s("E .", 8); s("B", 8); s("D .", 8); s("C .", 8); s("A", 4); s("", 8);
-	s("C", 8); s("E", 8); s("A", 8); s("B", 4); s("", 8); s("E", 8); s("C .", 8); s("B", 8); s("A", 4); s("", 8);
-	s("B", 8); s("C .", 8); s("D .", 8); s("E .", 4); s("", 8); s("G", 8); s("F .", 8); s("E .", 8); s("D .", 4); s("", 8);
-	s("F", 8); s("E .", 8); s("D .", 8); s("C .", 4); s("", 8); s("E", 8); s("D .", 8); s("C .", 8); s("B", 4); s("", 8);
-}
+	int bpm = 115;		// 음악 속도.
+	int ptr = 0;		// 전체 악보 중, 진행 상황.
+	int step = -1;		// 딜레이 체커.
+	int goal = -1;		// 한 음의 딜레이.
 
-void s(char sy[3], int len)
+	// if (후진 범위 인식 시)
+	//	{ptr+=1;
+	
+	if (ptr>0)
+		{if (step == 0)
+			{switch (ptr)
+				{case 1: {Sound(53); goal = 120000 / 8 / 115;} break;		// 미
+				case 2: {Sound(52); goal = 120000 / 8 / 115;} break;		// 레#
+				case 3: {Sound(53); goal = 120000 / 8 / 115;} break;		// 미
+				case 4: {Sound(52); goal = 120000 / 8 / 115;} break;		// 레#
+				case 5: {Sound(53); goal = 120000 / 8 / 115;} break;		// 미
+				case 6: {Sound(48); goal = 120000 / 8 / 115;} break;		// 시
+				case 7: {Sound(51); goal = 120000 / 8 / 115;} break;		// 레
+				case 8: {Sound(49); goal = 120000 / 8 / 115;} break;		// 도
+				case 9: {Sound(46); goal = 120000 / 4 / 115;} break;		// 라
+				case 10: {Sound(0); ptr = 0; goal = -1;} break;				// END
+				}
+			}
+		if (step == goal) { ptr += 1; goal = 0; }	// 딜레이에 도달하면, 초기화.
+			step += 1;								// 딜레이 1 추가;
+		}
+
+	//	}
+=======
+#include <stdio.h>
+#include "Altino.h"
+
+main()
 {
-	int mel = 0;
-	switch (sy[0])
-		{case 'C': {mel = 1;} break;
-		case 'D': {mel = 3;} break;
-		case 'E': {mel = 5;} break;
-		case 'F': {mel = 6;} break;
-		case 'G': {mel = 8;} break;
-		case 'A': {mel = 10;} break;
-		case 'B': {mel = 12;} break;
+	int bpm = 115;		// 음악 속도.
+	int ptr = 0;		// 전체 악보 중, 진행 상황.
+	int step = -1;		// 딜레이 체커.
+	int goal = -1;		// 한 음의 딜레이.
+
+	// if (후진 범위 인식 시)
+	//	{ptr+=1;
+	
+	if (ptr>0)
+		{if (step == 0)
+			{switch (ptr)
+				{case 1: {Sound(53); goal = 120000 / 8 / 115;} break;		// 미
+				case 2: {Sound(52); goal = 120000 / 8 / 115;} break;		// 레#
+				case 3: {Sound(53); goal = 120000 / 8 / 115;} break;		// 미
+				case 4: {Sound(52); goal = 120000 / 8 / 115;} break;		// 레#
+				case 5: {Sound(53); goal = 120000 / 8 / 115;} break;		// 미
+				case 6: {Sound(48); goal = 120000 / 8 / 115;} break;		// 시
+				case 7: {Sound(51); goal = 120000 / 8 / 115;} break;		// 레
+				case 8: {Sound(49); goal = 120000 / 8 / 115;} break;		// 도
+				case 9: {Sound(46); goal = 120000 / 4 / 115;} break;		// 라
+				case 10: {Sound(0); ptr = 0; goal = -1;} break;				// END
+				}
+			}
+		if (step == goal) { ptr += 1; goal = 0; }	// 딜레이에 도달하면, 초기화.
+			step += 1;								// 딜레이 1 추가;
 		}
 
-	switch (sy[1])
-		{case '#': {mel += 1;} break;
-		case 'b': {mel -= 1;} break;
-		}
-
-	switch(sy[2])
-		{case '.': {oct = 5;} break;
-		default: {oct = 4;} break;
-		}
-	mel += (oct - 1) * 12;
-
-	Sound(mel);
-	delay(2400000/len/bpm);
+	//	}
+>>>>>>> 7de2c74585b37cc9d96ba8839e817f964754f6d3
 }
