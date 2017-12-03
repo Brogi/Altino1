@@ -3,31 +3,31 @@
 
 main()
 {
-	int bpm = 115;		// À½¾Ç ¼Óµµ.
-	int ptr = 0;		// ÀüÃ¼ ¾Çº¸ Áß, ÁøÇà »óÈ².
-	int step = -1;		// µô·¹ÀÌ Ã¼Ä¿.
-	int goal = -1;		// ÇÑ À½ÀÇ µô·¹ÀÌ.
+	int bpm = 115;		// ìŒì•… ì†ë„.
+	int ptr = 0;		// ì „ì²´ ì•…ë³´ ì¤‘, ì§„í–‰ ìƒí™©.
+	int step = -1;		// ë”œë ˆì´ ì²´ì»¤.
+	int goal = -1;		// í•œ ìŒì˜ ë”œë ˆì´.
 
-	// if (ÈÄÁø ¹üÀ§ ÀÎ½Ä ½Ã)
+	// if (í›„ì§„ ë²”ìœ„ ì¸ì‹ ì‹œ)
 	//	{ptr+=1;
 
 	if (ptr > 0)
 		{if (step == 0)
 			{switch (ptr)
-				{case 1: {Sound(53); goal = 120000 / 8 / 115;} break;		// ¹Ì
-				case 2: {Sound(52); goal = 120000 / 8 / 115;} break;		// ·¹#
-				case 3: {Sound(53); goal = 120000 / 8 / 115;} break;		// ¹Ì
-				case 4: {Sound(52); goal = 120000 / 8 / 115;} break;		// ·¹#
-				case 5: {Sound(53); goal = 120000 / 8 / 115;} break;		// ¹Ì
-				case 6: {Sound(48); goal = 120000 / 8 / 115;} break;		// ½Ã
-				case 7: {Sound(51); goal = 120000 / 8 / 115;} break;		// ·¹
-				case 8: {Sound(49); goal = 120000 / 8 / 115;} break;		// µµ
-				case 9: {Sound(46); goal = 120000 / 4 / 115;} break;		// ¶ó
-				case 10: {Sound(0); ptr = 0; goal = -1;} break;				// END
+				{case 1: {Sound(53); goal = 120000 / 8 / 115;} break;		// ë¯¸
+				case 2: {Sound(52); goal = 120000 / 8 / 115;} break;		// ë ˆ#
+				case 3: {Sound(53); goal = 120000 / 8 / 115;} break;		// ë¯¸
+				case 4: {Sound(52); goal = 120000 / 8 / 115;} break;		// ë ˆ#
+				case 5: {Sound(53); goal = 120000 / 8 / 115;} break;		// ë¯¸
+				case 6: {Sound(48); goal = 120000 / 8 / 115;} break;		// ì‹œ
+				case 7: {Sound(51); goal = 120000 / 8 / 115;} break;		// ë ˆ
+				case 8: {Sound(49); goal = 120000 / 8 / 115;} break;		// ë„
+				case 9: {Sound(46); goal = 120000 / 4 / 115;} break;		// ë¼
+				case 10: {Sound(0); ptr = 0; goal = -1;} break;			// END
 				}
 			}
-		if (step == goal) { ptr += 1; goal = 0; }	// µô·¹ÀÌ¿¡ µµ´ŞÇÏ¸é, ÃÊ±âÈ­.
-		step += 1;								// µô·¹ÀÌ 1 Ãß°¡;
+		if (step == goal) { ptr += 1; goal = 0; }	// ë”œë ˆì´ì— ë„ë‹¬í•˜ë©´, ì´ˆê¸°í™”.
+		step += 1;					// ë”œë ˆì´ 1 ì¶”ê°€;
 		}
 
 	//	}
