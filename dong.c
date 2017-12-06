@@ -66,7 +66,7 @@ void retreat() {
 }
 
 
-//항상 왼쪽으로 가다가 벽이 나오면 오른쪽으로 감
+//always go left
 void dongidea() 
 {
 	SensorData sens;
@@ -92,7 +92,6 @@ void dongidea()
 			else if (ir0 > Max)	steering(3);
 			else steering(1);
 		}
-
 	}
 }
 
