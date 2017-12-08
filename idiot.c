@@ -53,13 +53,11 @@ void print_IR_value(int ir)
 }
 
 void retreat() {
-    Steering(2);
+    Steering(1);
 	Go(-Speed, -Speed);
 	delay(1000);
-	Steering(3);
 	//backsound();
 	Go(Speed, Speed);
-	delay(1000);
 }
 
 void wonidea()
