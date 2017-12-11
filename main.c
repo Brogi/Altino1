@@ -1,4 +1,5 @@
 #include "Altino.h"
+
 int main()
 {
     SensorData sens;
@@ -52,7 +53,6 @@ int main()
             Steering(2);
         }
     }
-    // ¡÷ºÆ
     return 0;
 
 
