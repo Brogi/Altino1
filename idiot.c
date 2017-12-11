@@ -7,7 +7,8 @@
 #define Min 20
 #define Crush 150
 #define Speed 400
-#define angle 5
+#define angle 2
+
 
 double point[5000][2] = { 0 };
 int i = 0, a = 90, cnt = 1;
@@ -33,7 +34,8 @@ void display()
 	glVertex2f(0, 0);
 	for (j = 0; j < i; j++)
 	{
-		glVertex2f(point[j][0]/20, point[j][1]/20);
+		glVertex2f(point[j][0]/100, point[j][1]/100);
+
 	}
 
 	glEnd();
@@ -88,12 +90,13 @@ void print_IR_value(int ir)
 
 void retreat() {
 	Steering(1);
-	a += angle;
+	//a += angle;
 	Go(-Speed - 100, -Speed - 100);
-	delay(500);
-	point[i][0] = point[i - 1][0] - cos(a*3.14 / 180)/100;
-	point[i][1] = point[i - 1][0] - sin(a*3.14 / 180)/100;
-	i++;
+	delay(200);
+	//point[i][0] = point[i - 1][0] - cos(a*3.14 / 180)/100;
+	//point[i][1] = point[i - 1][0] - sin(a*3.14 / 180)/100;
+	//i++;
+
 	//backsound();
 	Steering(2);
 	Go(Speed, Speed);
@@ -128,9 +131,10 @@ void wonidea()
 			break;
 		}
 
-		if (ir1 < 5)
+		if (ir1 < 10) // 5
 		{
-			if (ir0 > 5)
+			if (ir0 > 10) // ��� 5
+
 			{
 				Steering(2);
 			}
@@ -140,7 +144,8 @@ void wonidea()
 				a += angle;
 			}
 		}
-		else if (ir0 > 0 && ir1 >= 5)
+		else if (ir0 > 0 && ir1 >= 10) // 5
+
 		{
 			Steering(3);
 			a -= angle;
@@ -160,7 +165,10 @@ void wonidea()
 			point[i][0] = point[i - 1][0] + cos(a*3.14 / 180);
 			point[i][1] = point[i - 1][1] + sin(a*3.14 / 180);
 		}
-		i++;
+
+		printf("***%lf***\n",a*3.14 / 180);
+			i++;
+
 	}
 
 }
@@ -173,7 +181,8 @@ int main()
 	wonidea();
 	Go(0, 0);
 	glutInitDisplayMode(GLUT_RGBA);
-	glutInitWindowSize(1000, 500);
+	glutInitWindowSize(1000, 1000);
+
 	glutCreateWindow("opengl project");
 	glutDisplayFunc(display);
 	glutMainLoop();
