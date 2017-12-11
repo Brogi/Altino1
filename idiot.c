@@ -8,6 +8,15 @@
 int bpm = 115; int oct;
 void s(char sy[3],int len);
 
+int stop(int n)
+{
+    if(n<=150)
+    {
+        return 1;
+    }
+    else return 0;
+}
+
 void backsound()
 {
 	s("E .", 8); s("D#.", 8); s("E .", 8); s("D#.", 8); s("E .", 8); s("B", 8); s("D .", 8); s("C .", 8); s("A", 4); s("", 8);
@@ -63,7 +72,7 @@ void retreat() {
 void wonidea()
 {
     SensorData sens;
-    int ir0, ir1, ir2, ir3, ir4, ir5;
+    int ir0, ir1, ir2, ir3, ir4, ir5, jodo;
 
      while(1)
     {
@@ -74,6 +83,7 @@ void wonidea()
         ir3 = sens.IRSensor[3];
         ir4 = sens.IRSensor[4];
         ir5 = sens.IRSensor[5];
+        jodo = sens.CDSSensor;
         print_IR_value(ir0);
         print_IR_value(ir1);
         print_IR_value(ir2);
@@ -81,6 +91,11 @@ void wonidea()
         print_IR_value(ir4);
         print_IR_value(ir5);
         printf("\n");
+
+        if(stop(jodo)==1)
+        {
+            break;
+        }
 
         if (ir1 < 5)
         {
