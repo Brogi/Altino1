@@ -3,32 +3,78 @@
 
 main()
 {
-	int bpm = 115;		// ÏùåÏïÖ ÏÜçÎèÑ.
-	int ptr = 0;		// Ï†ÑÏ≤¥ ÏïÖÎ≥¥ Ï§ë, ÏßÑÌñâ ÏÉÅÌô©.
-	int step = -1;		// ÎîúÎ†àÏù¥ Ï≤¥Ïª§.
-	int goal = -1;		// Ìïú ÏùåÏùò ÎîúÎ†àÏù¥.
+	int bpm = 115;
+	int ptr = 0;
+	int step = -1;
+	int goal = -1;
 
-	// if (ÌõÑÏßÑ Î≤îÏúÑ Ïù∏Ïãù Ïãú)
-	//	{ptr+=1;
-
-	if (ptr > 0)
+	if (ptr == 0) {ptr += 1;}
+	if (ptr>0)
 		{if (step == 0)
 			{switch (ptr)
-				{case 1: {Sound(53); goal = 120000 / 8 / 115;} break;		// ÎØ∏
-				case 2: {Sound(52); goal = 120000 / 8 / 115;} break;		// Î†à#
-				case 3: {Sound(53); goal = 120000 / 8 / 115;} break;		// ÎØ∏
-				case 4: {Sound(52); goal = 120000 / 8 / 115;} break;		// Î†à#
-				case 5: {Sound(53); goal = 120000 / 8 / 115;} break;		// ÎØ∏
-				case 6: {Sound(48); goal = 120000 / 8 / 115;} break;		// Ïãú
-				case 7: {Sound(51); goal = 120000 / 8 / 115;} break;		// Î†à
-				case 8: {Sound(49); goal = 120000 / 8 / 115;} break;		// ÎèÑ
-				case 9: {Sound(46); goal = 120000 / 4 / 115;} break;		// Îùº
-				case 10: {Sound(0); ptr = 0; goal = -1;} break;			// END
+				{case 1: {Sound(53); goal = 120000 / 8 / 115;} break;		// πÃ
+				case 2: {Sound(52); goal = 120000 / 8 / 115;} break;		// ∑π#
+				case 3: {Sound(53); goal = 120000 / 8 / 115;} break;		// πÃ
+				case 4: {Sound(52); goal = 120000 / 8 / 115;} break;		// ∑π#
+				case 5: {Sound(53); goal = 120000 / 8 / 115;} break;		// πÃ
+				case 6: {Sound(48); goal = 120000 / 8 / 115;} break;		// Ω√
+				case 7: {Sound(51); goal = 120000 / 8 / 115;} break;		// ∑π
+				case 8: {Sound(49); goal = 120000 / 8 / 115;} break;		// µµ
+				case 9: {Sound(46); goal = 120000 / 4 / 115;} break;		// ∂Û
+				case 10: {Sound(0); goal = 120000 / 8 / 115;} break;
+				case 11: {Sound(37); goal = 120000 / 8 / 115;} break;		// µµ
+				case 12: {Sound(41); goal = 120000 / 8 / 115;} break;		// πÃ
+				case 13: {Sound(46); goal = 120000 / 8 / 115;} break;		// ∂Û
+				case 14: {Sound(48); goal = 120000 / 4 / 115;} break;		// Ω√
+				case 15: {Sound(0); goal = 120000 / 8 / 115;} break;
+				case 16: {Sound(41); goal = 120000 / 8 / 115;} break;		// πÃ
+				case 17: {Sound(45); goal = 120000 / 8 / 115;} break;		// º÷#
+				case 18: {Sound(48); goal = 120000 / 8 / 115;} break;		// Ω√
+				case 19: {Sound(49); goal = 120000 / 4 / 115;} break;		// µµ
+				case 20: {Sound(0); goal = 120000 / 8 / 115;} break;
+				case 21: {Sound(53); goal = 120000 / 8 / 115;} break;		// πÃ
+				case 22: {Sound(52); goal = 120000 / 8 / 115;} break;		// ∑π#
+				case 23: {Sound(53); goal = 120000 / 8 / 115;} break;		// πÃ
+				case 24: {Sound(52); goal = 120000 / 8 / 115;} break;		// ∑π#
+				case 25: {Sound(53); goal = 120000 / 8 / 115;} break;		// πÃ
+				case 26: {Sound(48); goal = 120000 / 8 / 115;} break;		// Ω√
+				case 27: {Sound(51); goal = 120000 / 8 / 115;} break;		// ∑π
+				case 28: {Sound(49); goal = 120000 / 8 / 115;} break;		// µµ
+				case 29: {Sound(46); goal = 120000 / 4 / 115;} break;		// ∂Û
+				case 30: {Sound(0); goal = 120000 / 8 / 115;} break;
+				case 31: {Sound(37); goal = 120000 / 8 / 115;} break;		// µµ
+				case 32: {Sound(41); goal = 120000 / 8 / 115;} break;		// πÃ
+				case 33: {Sound(46); goal = 120000 / 8 / 115;} break;		// ∂Û
+				case 34: {Sound(48); goal = 120000 / 4 / 115;} break;		// Ω√
+				case 35: {Sound(0); goal = 120000 / 8 / 115;} break;
+				case 36: {Sound(41); goal = 120000 / 8 / 115;} break;		// πÃ
+				case 37: {Sound(49); goal = 120000 / 8 / 115;} break;		// µµ
+				case 38: {Sound(48); goal = 120000 / 8 / 115;} break;		// Ω√
+				case 39: {Sound(46); goal = 120000 / 4 / 115;} break;		// ∂Û
+				case 40: {Sound(0); goal = 120000 / 8 / 115;} break;
+				case 41: {Sound(48); goal = 120000 / 8 / 115;} break;		// Ω√
+				case 42: {Sound(49); goal = 120000 / 8 / 115;} break;		// µµ
+				case 43: {Sound(51); goal = 120000 / 8 / 115;} break;		// ∑π
+				case 44: {Sound(53); goal = 120000 / 4 / 115;} break;		// πÃ
+				case 45: {Sound(0); goal = 120000 / 8 / 115;} break;
+				case 46: {Sound(44); goal = 120000 / 8 / 115;} break;		// º÷
+				case 47: {Sound(54); goal = 120000 / 8 / 115;} break;		// ∆ƒ
+				case 48: {Sound(53); goal = 120000 / 8 / 115;} break;		// πÃ
+				case 49: {Sound(51); goal = 120000 / 4 / 115;} break;		// ∑π
+				case 50: {Sound(0); goal = 120000 / 8 / 115;} break;
+				case 61: {Sound(42); goal = 120000 / 8 / 115;} break;		// ∆ƒ
+				case 62: {Sound(53); goal = 120000 / 8 / 115;} break;		// πÃ
+				case 63: {Sound(51); goal = 120000 / 8 / 115;} break;		// ∑π
+				case 64: {Sound(49); goal = 120000 / 4 / 115;} break;		// µµ
+				case 65: {Sound(0); goal = 120000 / 8 / 115;} break;
+				case 66: {Sound(41); goal = 120000 / 8 / 115;} break;		// πÃ
+				case 67: {Sound(51); goal = 120000 / 8 / 115;} break;		// ∑π
+				case 68: {Sound(49); goal = 120000 / 8 / 115;} break;		// µµ
+				case 69: {Sound(48); goal = 120000 / 4 / 115;} break;		// Ω√
+				case 70: {Sound(0); goal = 120000 / 8 / 115;} break;
+				default: {ptr = 0; goal = 0;} break;
 				}
-			}
-		if (step == goal) { ptr += 1; goal = 0; }	// ÎîúÎ†àÏù¥Ïóê ÎèÑÎã¨ÌïòÎ©¥, Ï¥àÍ∏∞Ìôî.
-		step += 1;					// ÎîúÎ†àÏù¥ 1 Ï∂îÍ∞Ä;
 		}
-
-	//	}
-}
+		if (step == goal) { ptr += 1; goal = 0; }	// µÙ∑π¿Ãø° µµ¥ﬁ«œ∏È, √ ±‚»≠.
+		step += 1;								// µÙ∑π¿Ã 1 √ﬂ∞°;
+	}
